@@ -1,0 +1,5 @@
+node server.js
+node scripts/list_pending.js
+node scripts/approve.js 20231001 --yes
+# atau by id:
+node scripts/approve.js 1 --yes

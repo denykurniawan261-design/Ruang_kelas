@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>RuangKelas | Mini LMS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="toast"></div>
+
+<!-- LOGIN -->
+<section id="loginPage" class="login-page">
+  <div class="login-card">
+    <div class="brand large"><span class="brand-mark">RK</span><span>RuangKelas</span></div>
+    <p class="eyebrow">MINI LEARNING MANAGEMENT SYSTEM</p>
+    <h1 id="authTitle">Buat akun Mahasiswa</h1>
+    <p class="muted" id="authDescription">Daftar sebagai mahasiswa. Pendaftaran akan diverifikasi oleh pemilik (dosen) sebelum dapat masuk.</p>
+
+    <form id="registerForm" class="auth-form">
+      <label for="registerName">Nama lengkap</label>
+      <input id="registerName" autocomplete="name" required maxlength="80" placeholder="Contoh: Nur Lutfia Amalia">
+
+      <label for="registerNIM">NIM</label>
+      <input id="registerNIM" autocomplete="off" required maxlength="20" placeholder="Contoh: 20231001">
+
+      <label for="registerEmail">Email</label>
+      <input id="registerEmail" type="email" autocomplete="email" required maxlength="100" placeholder="contoh@mail.com">
+
+      <label for="registerPassword">Password</label>
+      <input id="registerPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="Minimal 8 karakter">
+
+      <label for="registerPasswordConfirm">Ulangi password</label>
+      <input id="registerPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required placeholder="Masukkan password sekali lagi">
+
+      <label for="registerOwnerCode">Kode Pemilik (opsional)</label>
+      <input id="registerOwnerCode" type="text" autocomplete="off" maxlength="128" placeholder="Masukkan kode pemilik jika Anda memiliki">
+
+      <button class="btn primary full" type="submit">Buat akun</button>
+    </form>
+
+    <form id="loginForm" class="auth-form">
+      <label for="loginName">NIM / NIP</label>
+      <input id="loginName" autocomplete="username" required placeholder="Masukkan NIM atau NIP">
+
+      <label for="loginPassword">Password</label>
+      <input id="loginPassword" type="password" autocomplete="current-password" required placeholder="Masukkan password">
+
+      <button class="btn primary full" type="submit">Masuk ke RuangKelas</button>
+    </form>
+
+    <p style="margin-top: 10px; text-align: center;">
+      <button type="button" class="btn ghost" id="forgotPasswordBtn">Lupa password?</button>
+    </p>
+    <p class="auth-switch" id="authSwitch"><span>Sudah punya akun?</span> <button type="button" id="showLoginBtn">Masuk</button></p>
+    <p style="margin-top:10px;text-align:center"><button class="btn ghost" type="button" onclick="showAdminPanel()">Admin: Verifikasi Pendaftar</button></p>
+  </div>
+</section>
+
+<!-- APP -->
+<div id="app" class="app hidden">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">RK</span><span>RuangKelas</span></div>
+
+    <div class="profile">
+      <div class="avatar" id="avatar">N</div>
+      <div><strong id="profileName">Mahasiswa</strong><small id="profileRole">Mahasiswa</small></div>
+    </div>
+
+    <nav id="sidebarNav"></nav>
+    <button class="nav-btn" id="changePasswordBtn">🔐 Ubah Password</button>
+    <button class="nav-btn logout" id="logoutBtn">↪ Keluar</button>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu">☰</button>
+      <div>
+        <div class="eyebrow">RUANGKELAS</div>
+        <h2 id="pageTitle">Dashboard</h2>
+      </div>
+      <div class="top-actions">
+        <span id="currentDate"></span>
+        <button class="icon-btn" id="notifBtn" title="Notifikasi">🔔</button>
+      </div>
+    </header>
+
+    <div class="page" id="pageContent"></div>
+  </main>
+</div>
+
+<!-- MODAL -->
+<div class="modal-backdrop hidden" id="modalBackdrop">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
